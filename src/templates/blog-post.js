@@ -8,15 +8,16 @@ import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    
+    const post = this.props.data.flotiqBlogPost
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
+          title={post.title}
+          description={post.content || post.excerpt}
         />
         <article>
           <header>
@@ -26,7 +27,7 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: 0,
               }}
             >
-              {post.frontmatter.title}
+              {post.title}
             </h1>
             <p
               style={{
@@ -35,10 +36,13 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: rhythm(1),
               }}
             >
-              {post.frontmatter.date}
+              
             </p>
           </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          { post.headerImage[0].id &&
+          <img src={`${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${post.headerImage[0].id}.${post.headerImage[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
+	        }
+          <section dangerouslySetInnerHTML={{ __html: post.content }} />
           <hr
             style={{
               marginBottom: rhythm(1),
@@ -61,15 +65,15 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                <Link to={previous.slug} rel="prev">
+                  ← {previous.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
+                <Link to={next.slug} rel="next">
+                  {next.title} →
                 </Link>
               )}
             </li>
@@ -83,21 +87,20 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-      }
+query BlogPostBySlug($slug: String!) {
+  site {
+    siteMetadata {
+      title
     }
   }
+  flotiqBlogPost( slug: { eq: $slug } ) {
+    id
+    title
+    content
+    headerImage {
+      extension
+      id
+    }
+  }
+}
 `
