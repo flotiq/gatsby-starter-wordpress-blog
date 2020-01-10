@@ -63,10 +63,6 @@ export const pageQuery = graphql`
           extension
           id
         }
-        thumbnail {
-          extension
-          id
-        }
         content
         id
         slug
