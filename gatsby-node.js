@@ -14,10 +14,6 @@ exports.createPages = async ({ graphql, actions }) => {
             extension
             id
           }
-          thumbnail {
-            extension
-            id
-          }
           content
           id
           slug

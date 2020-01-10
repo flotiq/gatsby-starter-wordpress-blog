@@ -17,15 +17,6 @@ exports.sourceNodes = async ({actions}, {baseUrl, authToken}) => {
     if(response.ok) {
         let json = await response.json();
         let nodes = await Promise.all(json.data.map(async datum => {
-		if(datum.thumbnail && datum.thumbnail.length){
-            const response  = await fetch(apiUrl + datum.thumbnail[0].dataUrl, {headers: headers});
-            if(response.ok) {
-                datum.thumbnail[0] = await response.json();
-		    console.log('response ok!');
-            }
-		} else {
-			datum.thumbnail = [{"id":"", "extension":""}];
-		}
 	    if(datum.headerImage && datum.headerImage.length){
             const response2  = await fetch(apiUrl + datum.headerImage[0].dataUrl, {headers: headers});
 
@@ -41,7 +32,6 @@ exports.sourceNodes = async ({actions}, {baseUrl, authToken}) => {
                 slug: datum.slug,
                 title: datum.title,
                 content: datum.content,
-                thumbnail: datum.thumbnail,
                 headerImage: datum.headerImage,
                 flotiqInternal: datum.internal,
                 //required
