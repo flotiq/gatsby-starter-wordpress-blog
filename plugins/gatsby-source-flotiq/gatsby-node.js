@@ -56,7 +56,7 @@ exports.sourceNodes = async ({actions}, {baseUrl, authToken}) => {
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
     const typeDefs = `
-    type FlotiqProject implements Node {
+    type FlotiqBlogPost implements Node {
       slug: String!
       title: String!
       content: String!
