@@ -1,3 +1,7 @@
+> **See how this blog is built and deployed on Heroku:**
+>[![Build a blog with Flotiq, GatsbyJS and Heroku](https://img.youtube.com/vi/hz3RK5qqhrQ/0.jpg)](https://www.youtube.com/watch?v=hz3RK5qqhrQ)
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
@@ -7,6 +11,8 @@
 <h1 align="center">
   Gatsby's blog starter
 </h1>
+
+
 
 Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
