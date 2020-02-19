@@ -8,16 +8,16 @@ import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allFlotiqBlogPost.edges;
+    const { data } = this.props;
+    const siteTitle = data.site.siteMetadata.title;
+    const posts = data.allBlogpost.edges;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         <Bio />
         {posts.map(({ node }) => {
-          const title = node.title || node.slug
+          const title = node.title || node.slug;
           return (
             <article key={node.slug}>
               <header>
@@ -56,7 +56,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allFlotiqBlogPost(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
+    allBlogpost(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
       edges {
         node {
         headerImage {
@@ -71,4 +71,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
