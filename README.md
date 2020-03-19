@@ -26,8 +26,20 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     ```shell
     # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+    gatsby new my-blog-starter https://github.com/flotiq/gatsby-starter-blog
     ```
+    
+1.  **Set your configuration**
+
+    Create .env file inside project root containing
+    
+    ```
+    GATSBY_FLOTIQ_BASE_URL=https://api.flotiq.com
+    FLOTIQ_API_KEY=__YOUR_FLOTIQ_API_KEY__
+    ```
+    
+    Replace `__YOUR_FLOTIQ_API_KEY__` with your API token, see more in Flotiq docs: https://flotiq.com/docs/API/
+
 
 1.  **Start developing.**
 
