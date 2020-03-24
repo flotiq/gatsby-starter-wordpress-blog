@@ -7,7 +7,7 @@ module.exports = {
     description: `A starter blog demonstrating what Flotiq & Gatsby can do together.`,
     siteUrl: `https://gatsby-starter-blog-flotiq.herokuapp.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `flotiq`,
     },
   },
   plugins: [

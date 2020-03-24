@@ -1,13 +1,13 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
   const result = await graphql(`
   query GetBlogPosts {
-    allFlotiqBlogPost(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
+    allBlogpost(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
       edges {
         node{
           headerImage {
@@ -29,11 +29,11 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allFlotiqBlogPost.edges;
+  const posts = result.data.allBlogpost.edges;
 
   posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
 
     createPage({
       path: post.node.slug,
@@ -48,14 +48,14 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
       value,
     })
   }
-}
+};

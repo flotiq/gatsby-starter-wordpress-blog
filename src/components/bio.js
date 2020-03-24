@@ -30,9 +30,9 @@ const Bio = () => {
         }
       }
     }
-  `)
+  `);
 
-  const { author, social } = data.site.siteMetadata
+  const { author, social } = data.site.siteMetadata;
   return (
     <div
       style={{
@@ -57,11 +57,11 @@ const Bio = () => {
         Written by <strong>{author}</strong>.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+          You should follow them on Twitter
         </a>
       </p>
     </div>
   )
-}
+};
 
 export default Bio

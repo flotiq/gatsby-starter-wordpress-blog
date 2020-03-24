@@ -9,9 +9,9 @@ import { rhythm, scale } from "../utils/typography"
 class BlogPostTemplate extends React.Component {
   render() {
     
-    const post = this.props.data.flotiqBlogPost
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    const post = this.props.data.blogpost;
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const { previous, next } = this.props.pageContext;
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -39,7 +39,7 @@ class BlogPostTemplate extends React.Component {
               
             </p>
           </header>
-          { post.headerImage[0].id &&
+          { post.headerImage && post.headerImage[0].id &&
           <img src={`${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${post.headerImage[0].id}.${post.headerImage[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
 	        }
           <section dangerouslySetInnerHTML={{ __html: post.content }} />
@@ -93,7 +93,7 @@ query BlogPostBySlug($slug: String!) {
       title
     }
   }
-  flotiqBlogPost( slug: { eq: $slug } ) {
+  blogpost( slug: { eq: $slug } ) {
     id
     title
     content
@@ -103,4 +103,4 @@ query BlogPostBySlug($slug: String!) {
     }
   }
 }
-`
+`;
