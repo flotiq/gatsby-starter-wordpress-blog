@@ -5,19 +5,21 @@ module.exports = {
     title: `Gatsby Starter Blog`,
     author: `Flotiq developers`,
     description: `A starter blog demonstrating what Flotiq & Gatsby can do together.`,
-    siteUrl: `https://gatsby-starter-blog-flotiq.herokuapp.com/`,
+    siteUrl: `https://flotiq-blog.herokuapp.com/`,
     social: {
       twitter: `flotiq`,
     },
   },
   plugins: [
     {
-      "resolve": "gatsby-source-flotiq",		  
+      "resolve": "gatsby-source-flotiq",
       "options": {
           "baseUrl": process.env.GATSBY_FLOTIQ_BASE_URL,
-          "authToken": process.env.FLOTIQ_API_KEY
+          "authToken": process.env.FLOTIQ_API_KEY,
+          "forceReload": false,
+          "includeTypes": ['blogpost']
       }
-  }, 
+  },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
