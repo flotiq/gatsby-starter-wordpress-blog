@@ -14,8 +14,9 @@ Screenshot
 <img src="https://github.com/flotiq/gatsby-starter-blog/raw/master/docs/flotiq-starter-blogposts.png" width=480 />
 
 
-> **See how this blog is built and deployed on Heroku:**
->[![Build a blog with Flotiq, GatsbyJS and Heroku](https://img.youtube.com/vi/hz3RK5qqhrQ/0.jpg)](https://www.youtube.com/watch?v=hz3RK5qqhrQ)
+**See how this blog is built and deployed on Heroku:**
+
+[![Build a blog with Flotiq, GatsbyJS and Heroku](https://img.youtube.com/vi/hz3RK5qqhrQ/0.jpg)](https://www.youtube.com/watch?v=hz3RK5qqhrQ)
 
 
 ## Quick start
