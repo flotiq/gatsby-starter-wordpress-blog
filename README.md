@@ -59,7 +59,7 @@ Screenshot
     If you wish to import example blog posts to your account, before running `gatsby develop` run:
         
     ```sh
-    node ./example/importExample.js
+    node ./.flotiq/importExample.js
     ```
     
     It will add 1 image and 2 blog posts to your Flotiq account.
