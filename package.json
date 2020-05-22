@@ -27,7 +27,7 @@
     "gatsby-remark-responsive-iframe": "^2.2.28",
     "gatsby-remark-smartypants": "^2.1.17",
     "gatsby-source-filesystem": "^2.1.40",
-    "gatsby-source-flotiq": "^1.0.4",
+    "gatsby-source-flotiq": "^2.0.0",
     "gatsby-transformer-remark": "^2.6.39",
     "gatsby-transformer-sharp": "^2.3.7",
     "prismjs": "^1.17.1",
