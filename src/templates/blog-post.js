@@ -39,7 +39,7 @@ class BlogPostTemplate extends React.Component {
               
             </p>
           </header>
-          { post.headerImage && post.headerImage[0].id &&
+          { post.headerImage && post.headerImage[0] &&
           <img src={`${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${post.headerImage[0].id}.${post.headerImage[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
 	        }
           <section dangerouslySetInnerHTML={{ __html: post.content }} />
