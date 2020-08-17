@@ -8,7 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    
+
     const post = this.props.data.blogpost;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
@@ -36,11 +36,11 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: rhythm(1),
               }}
             >
-              
+
             </p>
           </header>
           { post.headerImage && post.headerImage[0] &&
-          <img src={`${process.env.GATSBY_FLOTIQ_BASE_URL}/image/1920x0/${post.headerImage[0].id}.${post.headerImage[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
+          <img src={`https://api.flotiq.com/image/1920x0/${post.headerImage[0].id}.${post.headerImage[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
 	        }
           <section dangerouslySetInnerHTML={{ __html: post.content }} />
           <hr
@@ -65,14 +65,14 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.slug} rel="prev">
+                <Link to={'/' + previous.slug} rel="prev">
                   ← {previous.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.slug} rel="next">
+                <Link to={'/' + next.slug} rel="next">
                   {next.title} →
                 </Link>
               )}
