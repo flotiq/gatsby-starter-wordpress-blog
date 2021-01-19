@@ -7,7 +7,7 @@ Gatsby Starter - WordPress-like Blog
 
 This is a [Gatsby](https://gatsbyjs.org) starter project for a blog. It's configured to pull blog posts data from [Flotiq](https://flotiq.com) and can be easily deployed to your cloud hosting - Heroku, Netlify, Gatsby Cloud, etc.
 
-Live Demo: https://flotiq-blog.herokuapp.com/
+Live Demo: https://flotiq-gatsby-starter-wordpress-blog.netlify.app/
 
 Screenshot
 
@@ -66,8 +66,6 @@ Screenshot
 1. **Manage your posts using Flotiq editor**
       
     You can now easily manage your posts using [Flotiq editor](https://editor.flotiq.com)
-    
-    ![Managing posts using Flotiq](docs/manage-blogposts.png)
 
 ## Deploy
 
