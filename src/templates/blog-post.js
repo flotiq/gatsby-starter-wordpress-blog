@@ -1,17 +1,36 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from "react";
+import { Link, graphql } from "gatsby";
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import { rhythm, scale } from "../utils/typography";
 
 class BlogPostTemplate extends React.Component {
   render() {
 
-    const post = this.props.data.blogpost;
+    const post = this.props.data.wpPost;
     const siteTitle = this.props.data.site.siteMetadata.title;
     const { previous, next } = this.props.pageContext;
+    let tags = '';
+    let categories = '';
+    if(post.categories.length) {
+      categories = (<span className="category-link-container">
+        {post.categories.map((category) => {
+          return (
+            <Link to={`/category/${category.slug}`} key={category.id} className="category-link">{category.name}</Link>
+          )
+        })}
+      </span>)
+    }
+    if(post.tags.length) {
+      tags = (<span className="category-link-container">
+        {post.tags.map((tag) => {
+          return (
+            <Link to={`/tag/${tag.slug}`} key={tag.id} className="category-link">{tag.name}</Link>
+          )
+        })}
+      </span>)
+    }
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -21,60 +40,54 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <header>
-            <h1
+            <div className="post-categories-container">{categories}{tags}</div>
+            <h2
+              className="post-name"
               style={{
                 marginTop: rhythm(1),
                 marginBottom: 0,
               }}
             >
               {post.title}
-            </h1>
+            </h2>
             <p
+              className="post-info"
               style={{
                 ...scale(-1 / 5),
                 display: `block`,
                 marginBottom: rhythm(1),
+                marginTop: rhythm(1 / 2),
               }}
             >
-
+              <span>Written by: <Link to={`/author/${post.author[0].slug}`} className="post-author-link">{post.author[0].name}</Link></span> | <span>{(new Date(post.created ?? post.flotiqInternal.createdAt)).toDateString()}</span>
             </p>
           </header>
-          { post.headerImage && post.headerImage[0] &&
-          <img src={`https://api.flotiq.com/image/1920x0/${post.headerImage[0].id}.${post.headerImage[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
+          { post.featuredMedia && post.featuredMedia[0] &&
+          <img src={`https://api.flotiq.com/image/1920x0/${post.featuredMedia[0].id}.${post.featuredMedia[0].extension}`} alt="test" style={{maxWidth: '100%', height: 'auto'}}/>
 	        }
           <section dangerouslySetInnerHTML={{ __html: post.content }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
-          <footer>
-            <Bio />
-          </footer>
         </article>
 
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+        <nav className="bottom-nav">
+          <ul>
             <li>
               {previous && (
-                <Link to={'/' + previous.slug} rel="prev">
-                  ← {previous.title}
-                </Link>
+                <div className="previous-post">
+                  <div className="previous-post-info">previous post</div>
+                  <Link to={'/post/' + previous.slug} rel="prev">
+                    ← {previous.title}
+                  </Link>
+                </div>
               )}
             </li>
             <li>
               {next && (
-                <Link to={'/' + next.slug} rel="next">
-                  {next.title} →
-                </Link>
+                <div className="next-post">
+                  <div className="next-post-info">next post</div>
+                  <Link to={'/post/' + next.slug} rel="next">
+                    {next.title} →
+                  </Link>
+                </div>
               )}
             </li>
           </ul>
@@ -93,14 +106,37 @@ query BlogPostBySlug($slug: String!) {
       title
     }
   }
-  blogpost( slug: { eq: $slug } ) {
-    id
+  wpPost(slug: {eq: $slug}, status: {eq: "publish"}) {
+    slug
     title
+    tags {
+      slug
+      name
+      id
+    }
+    type
+    status
+    created
+    excerpt
     content
-    headerImage {
+    categories {
+      slug
+      name
+      id
+    }
+    author {
+      slug
+      name
+    }
+    featuredMedia {
       extension
       id
     }
+    flotiqInternal {
+      createdAt
+    }
+    created
+    id
   }
 }
 `;

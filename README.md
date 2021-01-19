@@ -2,7 +2,7 @@
     <img src="https://editor.flotiq.com/fonts/fq-logo.svg" alt="Flotiq logo" title="Flotiq" align="right" height="60" />
 </a>
 
-Gatsby Starter - Blog
+Gatsby Starter - WordPress-like Blog
 ========================
 
 This is a [Gatsby](https://gatsbyjs.org) starter project for a blog. It's configured to pull blog posts data from [Flotiq](https://flotiq.com) and can be easily deployed to your cloud hosting - Heroku, Netlify, Gatsby Cloud, etc.
@@ -11,12 +11,7 @@ Live Demo: https://flotiq-blog.herokuapp.com/
 
 Screenshot
 
-<img src="https://github.com/flotiq/gatsby-starter-blog/raw/master/docs/flotiq-starter-blogposts.png" width=480 />
-
-
-**See how this blog is built and deployed on Heroku:**
-
-[![Build a blog with Flotiq, GatsbyJS and Heroku](https://img.youtube.com/vi/hz3RK5qqhrQ/0.jpg)](https://www.youtube.com/watch?v=hz3RK5qqhrQ)
+<img src="https://github.com/flotiq/gatsby-starter-wordpress-blog/raw/master/docs/flotiq-starter-blogposts.png" width=480 />
 
 
 ## Quick start
@@ -25,7 +20,7 @@ Screenshot
 
     ```bash
    npm install -g flotiq-cli
-   flotiq start [flotiqApiKey] [projectName] https://github.com/flotiq/gatsby-starter-blog
+   flotiq start [flotiqApiKey] [projectName] https://github.com/flotiq/gatsby-starter-wordpress-blog
     ```
    * `flotiqApKey` - Read and write API key to your Flotiq account      
    * `projectName` - project name or project path (if you wish to start or import data from the current directory - use `.`)
@@ -33,16 +28,12 @@ Screenshot
 1. **You can also start the project from template using Gatsby CLI**
     
     ```bash
-    gatsby new my-blog-starter https://github.com/flotiq/gatsby-starter-blog
+    gatsby new my-blog-starter https://github.com/flotiq/gatsby-starter-wordpress-blog
     ```
    
-1. **Setup "Blog Post" Content Type in Flotiq**
+1. **Importing your WordPress blog to Flotiq**
 
-   Create your [Flotiq.com](https://flotiq.com) account. Next, create the `Blog Post` Content Type:
-
-   ![Blog Post content type in flotiq](docs/create-definition-blogpost.png)
-    
-   _Note: You can also create `Blog Post` using [Flotiq REST API](https://flotiq.com/docs/API/)._ 
+   Create your [Flotiq.com](https://flotiq.com) account. Import your blog using [our WordPress importer](https://flotiq.com/services/migrate-wordpress-to-flotiq-headless-cms/)
 
 1. **Configure application**
 
@@ -59,22 +50,10 @@ Screenshot
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    cd my-blog-starter/
+    cd gatsby-starter-wordpress-blog/
     npm install
     gatsby develop
     ```
-    
-    This step is optional and is not necessary if you used flotiq-cli to start the project.
-    
-    If you wish to import example blog posts to your account, before running `gatsby develop`, install [flotiq-cli](https://github.com/flotiq/flotiq-cli), and run in project directory:
-        
-    ```sh
-    node ./.flotiq/importExample.js
-    ```
-    
-    It will add 1 image and 2 blog posts to your Flotiq account.
-    
-    _Note: You need to put your Read and write API key as the `flotiqApiKey` for import to work. You don't need the `Blog Post` content type in your account. If you already have posts with ids `blogpost-1` and `blogpost-2` they will be overwritten._
 
 1.  **Open the source code and start editing!**
     
@@ -94,15 +73,15 @@ Screenshot
 
   You can deploy this project to Heroku in 3 minutes:
 
-  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/flotiq/gatsby-starter-blog)
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/flotiq/gatsby-starter-wordpress-blog)
   
   Or to Netlify:
   
-  [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/flotiq/gatsby-starter-blog)
+  [![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/flotiq/gatsby-starter-wordpress-blog)
 
 
 ## Collaborating
 
-   If you wish to to talk with us about this project, feel free to hop on our [![Discord Chat](https://img.shields.io/discord/682699728454025410.svg)](https://discord.gg/FwXcHnX).
+   If you wish to talk with us about this project, feel free to hop on our [![Discord Chat](https://img.shields.io/discord/682699728454025410.svg)](https://discord.gg/FwXcHnX).
    
-   If you found a bug, please report it in [issues](https://github.com/flotiq/gatsby-starter-blog/issues).
+   If you found a bug, please report it in [issues](https://github.com/flotiq/gatsby-starter-wordpress-blog/issues).

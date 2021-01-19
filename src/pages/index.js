@@ -1,47 +1,25 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import './index.css';
+import PostListItem from "../components/post-list-item"
 
 class BlogIndex extends React.Component {
   render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-    const posts = data.allBlogpost.edges;
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
+    const posts = data.allWpPost.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.title || node.slug;
-          return (
-            <article key={node.slug}>
-              <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
-                  <Link style={{ boxShadow: `none` }} to={node.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.description || node.excerpt,
-                  }}
-                />
-              </section>
-            </article>
-          )
-        })}
+        <SEO title="All posts"/>
+          {posts.map(({ node }) => {
+            return (
+              <PostListItem node={node} key={node.id}/>
+            )
+          })}
       </Layout>
     )
   }
@@ -50,25 +28,60 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query IndexQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allBlogpost(sort: {fields: flotiqInternal___createdAt, order: DESC}) {
+    allWpPost(sort: {fields: flotiqInternal___createdAt, order: DESC}, filter: {status: {eq: "publish"}}) {
       edges {
         node {
-        headerImage {
-          extension
+          featuredMedia {
+            extension
+            id
+          }
+          author {
+            name
+            slug
+          }
+          categories {
+            name
+            slug
+            id
+          }
+          modified
+          excerpt
+          slug
+          title
+          tags {
+            slug
+            name
+            id
+          }
+          content
+          status
+          flotiqInternal {
+            createdAt
+          }
+          created
           id
         }
-        content
-        id
-        slug
-        title
       }
+    }
+    allWpCategory {
+      edges {
+        node {
+          description
+          id
+          name
+          slug
+          parentCategory {
+            slug
+            name
+          }
+        }
       }
     }
   }
-`;
+`

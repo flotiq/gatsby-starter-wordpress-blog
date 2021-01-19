@@ -2,13 +2,10 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Gatsby Starter WordPress-like Blog`,
     author: `Flotiq developers`,
-    description: `A starter blog demonstrating what Flotiq & Gatsby can do together.`,
+    description: `A starter blog demonstrating what Flotiq & Gatsby can do together when moving from WordPress.`,
     siteUrl: `https://flotiq-blog.herokuapp.com/`,
-    social: {
-      twitter: `flotiq`,
-    },
   },
   plugins: [
     {
@@ -16,7 +13,7 @@ module.exports = {
       "options": {
           "authToken": process.env.GATSBY_FLOTIQ_API_KEY,
           "forceReload": false,
-          "includeTypes": ['blogpost','_media']
+          "includeTypes": ['wp_author','wp_tag','wp_category','wp_post','wp_page','_media']
       }
   },
     {

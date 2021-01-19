@@ -1,0 +1,264 @@
+* {
+    font-family: "Lato", sans-serif;
+}
+
+.row {
+    display: flex;
+}
+
+.col-sm-8 {
+    width: 75%;
+}
+
+.col-sm-6 {
+    width: 50%;
+}
+
+.col-sm-4 {
+    width: 25%;
+}
+
+.main-column {
+    padding-right: 20px;
+}
+
+.page-header {
+    text-align: center;
+    color: #313131;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.page-header a {
+    font-family: "Lato Light", sans-serif;
+}
+
+.menu {
+    padding: 15px 0;
+    border-bottom: 1px solid #c1c1c1;
+    border-top: 1px solid #c1c1c1;
+}
+
+.menu-item {
+    padding: 0 15px 0 0;
+    text-transform: uppercase;
+}
+
+.menu-item a {
+    color: #313131;
+}
+
+.post-list-item {
+    margin-bottom: 20px;
+    height: auto;
+    max-height: 255px;
+}
+
+.post-list-image {
+    background: #e5e5e5;
+    margin: 0 10px 0 0;
+}
+
+.category-link-container .category-link {
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.category-link-container + .category-link-container:before {
+    content: '༜';
+    font-size: 1rem;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.post-list-name {
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.post-list-name a {
+    color: #313131;
+}
+
+.post-list-date {
+    color: #878787;
+}
+
+.side-column .post-list-item {
+    max-height: 85px;
+}
+
+.side-column .post-list-name {
+    font-size: 1rem;
+}
+
+.side-column img {
+    margin-bottom: 0;
+}
+
+.categories-header {
+    background: #e5e5e5;
+    text-align: center;
+    padding: 5px;
+    margin: 0 0 10px 0;
+    color: #878787;
+}
+
+.categories-list {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c1c1c1;
+    padding: 5px 2px;
+    font-size: 0.9rem;
+}
+
+.category-link {
+    text-decoration: none;
+    color: #313131;
+    box-shadow: none;
+}
+
+.category-link:hover {
+    text-decoration: underline;
+}
+
+.category-count {
+    color: #c1c1c1;
+    font-style: italic;
+}
+
+.category-name, .tag-name, .post-name {
+    text-align: center;
+    color: #313131;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.post-name {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.post-categories-container {
+    text-align: center;
+}
+
+.post-info {
+    text-align: center;
+    color: #878787;
+}
+
+.post-info span {
+    padding: 0 10px;
+}
+
+.post-author-link {
+    color: #454545;
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.bottom-nav {
+    padding: 10px 0;
+    border-bottom: 1px solid #c1c1c1;
+    border-top: 1px solid #c1c1c1;
+}
+
+.bottom-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.bottom-nav li {
+    margin-bottom: 0;
+}
+
+.bottom-nav li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: none;
+    color: #313131;
+}
+
+.next-post {
+    text-align: right;
+}
+
+.previous-post-info, .next-post-info {
+    font-size: 0.75rem;
+    color: #878787;
+}
+
+footer {
+    width: 100%;
+    padding: 50px;
+    text-align: center;
+    background: #e5e5e5;
+    font-size: 0.9rem;
+    color: #878787;
+}
+
+footer a {
+    color: #878787;
+    text-decoration: underline;
+    box-shadow: none;
+}
+
+
+@media(max-width: 992px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-sm-8, .col-sm-6, .col-sm-4  {
+        width: 100%;
+    }
+
+    .menu div {
+        justify-content: center;
+    }
+
+    .side-column {
+        margin-top: 20px;
+    }
+
+    .main-column {
+        padding-right: 0;
+    }
+
+    .page-header {
+        line-height: 1.5rem !important;
+    }
+
+    .page-header a {
+        font-size: 2rem;
+        line-height: 1.5rem !important;
+    }
+
+    .post-list-item * {
+        text-align: center;
+    }
+
+    .post-list-image {
+        background: white;
+        margin: 0;
+    }
+
+    .post-list-image img {
+        margin: 10px 0;
+    }
+
+    .side-column * {
+        text-align: center;
+    }
+
+    .side-column .post-list-item, .post-list-item {
+        max-height: unset;
+    }
+}
