@@ -5,7 +5,7 @@ module.exports = {
     title: `Gatsby Starter WordPress-like Blog`,
     author: `Flotiq developers`,
     description: `A starter blog demonstrating what Flotiq & Gatsby can do together when moving from WordPress.`,
-    siteUrl: `https://flotiq-blog.herokuapp.com/`,
+    siteUrl: `https://flotiq-gatsby-starter-wordpress-blog.netlify.app/`,
   },
   plugins: [
     {
