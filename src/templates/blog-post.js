@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { rhythm, scale } from "../utils/typography";
+import trim from "../utils/trim";
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -75,7 +76,7 @@ class BlogPostTemplate extends React.Component {
                 <div className="previous-post">
                   <div className="previous-post-info">previous post</div>
                   <Link to={'/post/' + previous.slug} rel="prev">
-                    ← {previous.title}
+                    ← {trim(previous.title)}
                   </Link>
                 </div>
               )}
@@ -85,7 +86,7 @@ class BlogPostTemplate extends React.Component {
                 <div className="next-post">
                   <div className="next-post-info">next post</div>
                   <Link to={'/post/' + next.slug} rel="next">
-                    {next.title} →
+                    {trim(next.title)} →
                   </Link>
                 </div>
               )}
