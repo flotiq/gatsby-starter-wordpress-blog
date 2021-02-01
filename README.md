@@ -23,9 +23,9 @@ Screenshot
    flotiq start [flotiqApiKey] [projectName] https://github.com/flotiq/gatsby-starter-wordpress-blog
     ```
    * `flotiqApKey` - Read and write API key to your Flotiq account      
-   * `projectName` - project name or project path (if you wish to start or import data from the current directory - use `.`)
+   * `projectName` - Your project name or project path (if you wish to develop in the current directory - use `.`)
 
-1. **You can also start the project from template using Gatsby CLI**
+1. **Or you can also start the project from template using Gatsby CLI**
     
     ```bash
     gatsby new my-blog-starter https://github.com/flotiq/gatsby-starter-wordpress-blog
