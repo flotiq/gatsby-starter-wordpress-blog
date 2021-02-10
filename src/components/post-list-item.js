@@ -52,11 +52,11 @@ const PostListItem = ({ node, latest }) => {
           <small className="post-list-date">{(new Date(node.created ?? node.flotiqInternal.createdAt)).toDateString()}</small>
         </header>
         {!latest && <section>
-          <p className="post-list-content"
+          <div className="post-list-content"
             dangerouslySetInnerHTML={{
               __html: node.description || node.excerpt,
             }}
-          />
+          ></div>
         </section>}
       </div>
     </article>
