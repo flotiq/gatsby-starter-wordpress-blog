@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         postsLimit
       }
     }
-    allWpPost(limit: 1, sort: {fields: created, order: DESC}, filter: {status: {eq: "publish"}}) {
+    allWpPost(limit: 5, sort: {fields: created, order: DESC}, filter: {status: {eq: "publish"}}) {
       edges {
         node {
           featuredMedia {
