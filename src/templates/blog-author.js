@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import PostListItem from "../components/post-list-item"
+import Pagination from "../components/pagination"
 
 class BlogAuthorTemplate extends React.Component {
   render() {
@@ -46,6 +47,7 @@ class BlogAuthorTemplate extends React.Component {
             <PostListItem node={node} key={node.id}/>
           )
         })}
+        <Pagination totalCount={this.props.data.allWpPost.totalCount} limit={this.props.pageContext.limit} url={`/author/${author.slug}`} currentPage={this.props.pageContext.page} />
       </Layout>
     )
   }
@@ -54,7 +56,7 @@ class BlogAuthorTemplate extends React.Component {
 export default BlogAuthorTemplate
 
 export const pageQuery = graphql`
-query BlogAuthorBySlug($slug: String!) {
+query BlogAuthorBySlug($slug: String!, $skip: Int!, $limit: Int!) {
   site {
     siteMetadata {
       title
@@ -66,7 +68,7 @@ query BlogAuthorBySlug($slug: String!) {
     name
     slug
   }
-  allWpPost(sort: {fields: flotiqInternal___createdAt, order: DESC}, filter: {status: {eq: "publish"}, author: {elemMatch: {slug: {eq: $slug}}}}) {
+  allWpPost(limit: $limit, skip: $skip, sort: {fields: flotiqInternal___createdAt, order: DESC}, filter: {status: {eq: "publish"}, author: {elemMatch: {slug: {eq: $slug}}}}) {
     edges {
       node {
         featuredMedia {

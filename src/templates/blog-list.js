@@ -3,11 +3,11 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import './index.css';
+import '../pages/index.css';
 import PostListItem from "../components/post-list-item"
 import Pagination from '../components/pagination';
 
-class BlogIndex extends React.Component {
+class BlogList extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -21,23 +21,22 @@ class BlogIndex extends React.Component {
               <PostListItem node={node} key={node.id}/>
             )
           })}
-          <Pagination totalCount={data.allWpPost.totalCount} limit={data.site.siteMetadata.postsLimit} url="/posts" currentPage={1} />
+          <Pagination totalCount={data.allWpPost.totalCount} limit={this.props.pageContext.limit} url="/posts" currentPage={this.props.pageContext.page} />
       </Layout>
     )
   }
 }
 
-export default BlogIndex
+export default BlogList
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query ListQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
-        postsLimit
       }
     }
-    allWpPost(limit: 5, sort: {fields: created, order: DESC}, filter: {status: {eq: "publish"}}) {
+    allWpPost(limit: $limit, skip: $skip, sort: {fields: created, order: DESC}, filter: {status: {eq: "publish"}}) {
       edges {
         node {
           featuredMedia {

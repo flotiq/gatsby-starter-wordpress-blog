@@ -5,11 +5,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import PostListItem from "../components/post-list-item"
+import Pagination from "../components/pagination"
 
 class BlogTagTemplate extends React.Component {
   render() {
 
-    console.log(this.props.data);
+    console.log(this.props);
     const tag = this.props.data.wpTag;
     const posts = this.props.data.allWpPost.edges;
     const siteTitle = this.props.data.site.siteMetadata.title;
@@ -48,6 +49,7 @@ class BlogTagTemplate extends React.Component {
             <PostListItem node={node} key={node.id}/>
           )
         })}
+        <Pagination totalCount={this.props.data.allWpPost.totalCount} limit={this.props.pageContext.limit} url={`/tag/${tag.slug}`} currentPage={this.props.pageContext.page} />
       </Layout>
     )
   }
@@ -56,7 +58,7 @@ class BlogTagTemplate extends React.Component {
 export default BlogTagTemplate
 
 export const pageQuery = graphql`
-query BlogTagBySlug($slug: String!) {
+query BlogTagBySlug($slug: String!, $skip: Int!, $limit: Int!) {
   site {
     siteMetadata {
       title
@@ -68,7 +70,7 @@ query BlogTagBySlug($slug: String!) {
     name
     slug
   }
-  allWpPost(sort: {fields: flotiqInternal___createdAt, order: DESC}, filter: {status: {eq: "publish"}, tags: {elemMatch: {slug: {eq: $slug}}}}) {
+  allWpPost(limit: $limit, skip: $skip, sort: {fields: flotiqInternal___createdAt, order: DESC}, filter: {status: {eq: "publish"}, tags: {elemMatch: {slug: {eq: $slug}}}}) {
     edges {
       node {
         featuredMedia {
@@ -102,6 +104,7 @@ query BlogTagBySlug($slug: String!) {
         id
       }
     }
+    totalCount
   }
 }
 `;
