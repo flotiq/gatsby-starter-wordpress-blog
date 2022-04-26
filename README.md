@@ -43,6 +43,8 @@ Screenshot
 
     ```
     GATSBY_FLOTIQ_API_KEY=YOUR FLOTIQ API KEY
+    GA_TRACKING_ID=YOUR GA TRACKING KEY
+    GA_MEASUREMENT_ID=YOUR MEASUREMENT ID
     ```
 
 1.  **Start developing**
