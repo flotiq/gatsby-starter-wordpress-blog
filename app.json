@@ -7,6 +7,9 @@
     },
     "GATSBY_FLOTIQ_API_KEY": {
       "description": "Flotiq API key"
+    },
+    "GA_MEASUREMENT_ID": {
+      "description": "Google Analytics Measurement ID"
     }
   },
   "buildpacks": [
