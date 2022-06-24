@@ -20,7 +20,7 @@ Screenshot
 
     ```bash
    npm install -g flotiq-cli
-   flotiq start [flotiqApiKey] [projectName] https://github.com/flotiq/gatsby-starter-wordpress-blog
+   flotiq start [projectName] https://github.com/flotiq/gatsby-starter-wordpress-blog [flotiqApiKey]
     ```
    * `flotiqApKey` - Read and write API key to your Flotiq account      
    * `projectName` - Your project name or project path (if you wish to develop in the current directory - use `.`)
